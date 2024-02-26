@@ -112,13 +112,14 @@ final class CarbAndBolusFlowViewModel: ObservableObject {
         recommendedBolusAmount = nil
     }
 
-    func recommendBolus(forGrams grams: Int, eatenAt carbEntryDate: Date, absorptionTime carbAbsorptionTime: CarbAbsorptionTime, lastEntryDate: Date) {
+    func recommendBolus(forGrams grams: Int, eatenAt carbEntryDate: Date, absorptionTime carbAbsorptionTime: CarbAbsorptionTime, lastEntryDate: Date, absorptionData: [Int: Double]?) {
         let entry = NewCarbEntry(
             date: lastEntryDate,
             quantity: HKQuantity(unit: .gram(), doubleValue: Double(grams)),
             startDate: carbEntryDate,
             foodType: nil,
-            absorptionTime: absorptionTime(for: carbAbsorptionTime)
+            absorptionTime: absorptionTime(for: carbAbsorptionTime),
+            absorptionData: absorptionData
         )
 
         guard entry.quantity.doubleValue(for: .gram()) > 0 else {

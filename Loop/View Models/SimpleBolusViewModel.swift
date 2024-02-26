@@ -389,7 +389,7 @@ class SimpleBolusViewModel: ObservableObject {
                     }
                 }
                 
-                let carbEntry = NewCarbEntry(date: saveDate, quantity: carbs, startDate: saveDate, foodType: nil, absorptionTime: nil)
+                let carbEntry = NewCarbEntry(date: saveDate, quantity: carbs, startDate: saveDate, foodType: nil, absorptionTime: nil, absorptionData: nil)
                 
                 delegate.addCarbEntry(carbEntry, replacing: nil) { result in
                     DispatchQueue.main.async {

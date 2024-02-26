@@ -266,7 +266,8 @@ extension ExtensionDelegate: UNUserNotificationCenterDelegate {
                                                                          doubleValue: carbAmount),
                                                     startDate: mealTime,
                                                     foodType: nil,
-                                                    absorptionTime: nil)
+                                                    absorptionTime: nil,
+                                                    absorptionData: nil)
                 statusController.addCarbs(initialEntry: missedEntry)
             // Otherwise, just provide the ability to add carbs
             } else {

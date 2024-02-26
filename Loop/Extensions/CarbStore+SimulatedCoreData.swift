@@ -66,6 +66,7 @@ fileprivate extension NewCarbEntry {
                             quantity: HKQuantity(unit: .gram(), doubleValue: grams),
                             startDate: startDate,
                             foodType: "Simulated",
-                            absorptionTime: absorptionTime)
+                            absorptionTime: absorptionTime,
+                            absorptionData: nil)
     }
 }

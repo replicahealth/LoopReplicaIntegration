@@ -40,6 +40,7 @@ struct CarbAndBolusFlow: View {
     // Date of the carb entry
     @State private var carbEntryDate = Date()
     @State private var carbAbsorptionTime: CarbAbsorptionTime = .medium
+    @State private var absorptionData: [Int: Double]?
     @State private var inputMode: CarbEntryInputMode = .carbs
 
     // MARK: - State: Bolus Entry
@@ -63,7 +64,8 @@ struct CarbAndBolusFlow: View {
                 _carbEntryDate = State(initialValue: entry.startDate)
                 
                 let initialCarbAmount = entry.quantity.doubleValue(for: .gram())
-                _carbAmount = State(initialValue: Int(initialCarbAmount))                
+                _carbAmount = State(initialValue: Int(initialCarbAmount))
+                _absorptionData = State(initialValue: entry.historicalAbsorptionData)
             }
         case .manualBolus:
             _flowState = State(initialValue: .bolusEntry)
@@ -149,7 +151,7 @@ extension CarbAndBolusFlow {
     }
 
     private func transitionToBolusEntry() {
-        viewModel.recommendBolus(forGrams: carbAmount, eatenAt: carbEntryDate, absorptionTime: carbAbsorptionTime, lastEntryDate: carbLastEntryDate)
+        viewModel.recommendBolus(forGrams: carbAmount, eatenAt: carbEntryDate, absorptionTime: carbAbsorptionTime, lastEntryDate: carbLastEntryDate, absorptionData: absorptionData)
         withAnimation {
             flowState = .bolusEntry
             inputMode = .carbs
