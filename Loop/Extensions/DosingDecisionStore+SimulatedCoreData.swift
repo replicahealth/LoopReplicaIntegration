@@ -111,6 +111,7 @@ fileprivate extension StoredDosingDecision {
                                                 quantity: HKQuantity(unit: .gram(), doubleValue: 15),
                                                 foodType: "Simulated",
                                                 absorptionTime: .hours(3),
+                                                absorptionData: nil,
                                                 createdByCurrentApp: true,
                                                 userCreatedDate: date.addingTimeInterval(-.minutes(15)),
                                                 userUpdatedDate: date.addingTimeInterval(-.minutes(1)))
@@ -122,6 +123,7 @@ fileprivate extension StoredDosingDecision {
                                         quantity: HKQuantity(unit: .gram(), doubleValue: 25),
                                         foodType: "Simulated",
                                         absorptionTime: .hours(5),
+                                        absorptionData: nil,
                                         createdByCurrentApp: true,
                                         userCreatedDate: date.addingTimeInterval(-.minutes(1)),
                                         userUpdatedDate: nil)

@@ -379,6 +379,7 @@ struct SimpleBolusCalculatorView_Previews: PreviewProvider {
                 quantity: carbEntry.quantity,
                 foodType: carbEntry.foodType,
                 absorptionTime: carbEntry.absorptionTime,
+                absorptionData: carbEntry.absorptionData,
                 createdByCurrentApp: true,
                 userCreatedDate: Date(),
                 userUpdatedDate: nil)

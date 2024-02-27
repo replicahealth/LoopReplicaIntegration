@@ -65,7 +65,7 @@ struct CarbAndBolusFlow: View {
                 
                 let initialCarbAmount = entry.quantity.doubleValue(for: .gram())
                 _carbAmount = State(initialValue: Int(initialCarbAmount))
-                _absorptionData = State(initialValue: entry.historicalAbsorptionData)
+                _absorptionData = State(initialValue: entry.absorptionData)
             }
         case .manualBolus:
             _flowState = State(initialValue: .bolusEntry)
